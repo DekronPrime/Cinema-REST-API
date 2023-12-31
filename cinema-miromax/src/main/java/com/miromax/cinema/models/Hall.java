@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class Hall {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "halls_seq")
+    @SequenceGenerator(name = "halls_seq", sequenceName = "halls_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

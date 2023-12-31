@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class City {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cities_seq")
+    @SequenceGenerator(name = "cities_seq", sequenceName = "cities_seq", allocationSize = 1)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;

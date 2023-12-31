@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class Booking {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bookings_seq")
+    @SequenceGenerator(name = "bookings_seq", sequenceName = "bookings_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

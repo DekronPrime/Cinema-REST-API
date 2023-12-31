@@ -14,7 +14,8 @@ import java.util.List;
 @ToString
 public class Country {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "countries_seq")
+    @SequenceGenerator(name = "countries_seq", sequenceName = "countries_seq", allocationSize = 1)
     private Long id;
     @Column(name = "code", unique = true, nullable = false)
     private String code;

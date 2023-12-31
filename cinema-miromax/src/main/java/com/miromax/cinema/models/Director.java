@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class Director {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "directors_seq")
+    @SequenceGenerator(name = "directors_seq", sequenceName = "directors_seq", allocationSize = 1)
     private Long id;
     @Column(name = "first_name", nullable = false)
     private String firstName;

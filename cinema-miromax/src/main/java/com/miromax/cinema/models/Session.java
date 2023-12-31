@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class Session {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sessions_seq")
+    @SequenceGenerator(name = "sessions_seq", sequenceName = "sessions_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

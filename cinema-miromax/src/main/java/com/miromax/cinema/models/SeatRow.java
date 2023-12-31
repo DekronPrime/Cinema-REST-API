@@ -16,7 +16,8 @@ import java.util.List;
 @ToString
 public class SeatRow {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seat_rows_seq")
+    @SequenceGenerator(name = "seat_rows_seq", sequenceName = "seat_rows_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

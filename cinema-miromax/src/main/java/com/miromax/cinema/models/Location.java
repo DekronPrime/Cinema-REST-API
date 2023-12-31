@@ -15,7 +15,8 @@ import java.util.List;
 @ToString
 public class Location {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "locations_seq")
+    @SequenceGenerator(name = "locations_seq", sequenceName = "locations_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne

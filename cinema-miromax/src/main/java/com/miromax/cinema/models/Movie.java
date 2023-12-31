@@ -21,7 +21,8 @@ import java.util.List;
 @ToString
 public class Movie {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movies_seq")
+    @SequenceGenerator(name = "movies_seq", sequenceName = "movies_seq", allocationSize = 1)
     private Long id;
     @Column(name = "title_ukr", nullable = false)
     private String titleUkr;

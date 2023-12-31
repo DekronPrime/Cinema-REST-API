@@ -17,7 +17,8 @@ import java.util.List;
 @ToString
 public class Comment {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comments_seq")
+    @SequenceGenerator(name = "comments_seq", sequenceName = "comments_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne
